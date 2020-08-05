@@ -1,5 +1,4 @@
 package RenanRodolfo_Lp3_2bim_AvaliacaoB;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -26,7 +25,9 @@ public class GUIGerador extends JFrame {
     List<String> ultimaClasse = new ArrayList<String>();
     JLabel processamento = new JLabel("");
     JLabel labelArquivodeorigem = new JLabel("Arquivo de origem");
+    JLabel labelCaminho = new JLabel("Caminho");
     JTextField textFieldArquivodeorigem = new JTextField(50);
+    JTextField textCaminho = new JTextField(200);
     JPanel aviso = new JPanel();
     Container cp;
     JPanel centro = new JPanel();
@@ -45,11 +46,12 @@ public class GUIGerador extends JFrame {
         setLayout(new BorderLayout());//informa qual gerenciador de layout será usado
         cp = getContentPane();//container principal, para adicionar nele os outros componentes
 
-        centro.setLayout(new GridLayout(1, 1));
+        centro.setLayout(new GridLayout(3, 1));
 
         centro.add(labelArquivodeorigem);
         centro.add(textFieldArquivodeorigem);
-
+        centro.add(labelCaminho);
+        centro.add(textCaminho);
         aviso.setLayout(new FlowLayout());
         aviso.add(processamento);
 
@@ -94,7 +96,7 @@ public class GUIGerador extends JFrame {
                 ultimaClasse.clear();
                 if (!textFieldArquivodeorigem.getText().equals("")) {
                     ultimaClasse.add(textFieldArquivodeorigem.getText());
-                    file.salvarArquivo("src/pacoteGerador/ultimaClasseGerada", ultimaClasse);
+                    file.salvarArquivo("src/RenanRodolfo_Lp3_2bim_AvaliacaoB/ultimaClasseGerada", ultimaClasse);
                 }
                 // Sai do sistema  
                 System.exit(0);
@@ -104,11 +106,14 @@ public class GUIGerador extends JFrame {
                 btnClasseDaoEspecifico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Gerador g = new Gerador(textFieldArquivodeorigem.getText());
+                
+                Gerador g = new Gerador(textFieldArquivodeorigem.getText(), textCaminho.getText());
+                System.out.println(textCaminho.getText());
                 g.gerarDaoEspecifico();
                 aviso.setBackground(Color.GREEN);
                 processamento.setText(" Processamento concluído ");
             }
         });
+                
 }
     }
