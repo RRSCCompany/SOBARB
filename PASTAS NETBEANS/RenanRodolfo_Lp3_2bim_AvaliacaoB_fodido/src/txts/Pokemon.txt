@@ -1,0 +1,2 @@
+idPokemon;int;15
+nomePokemon;String;50
