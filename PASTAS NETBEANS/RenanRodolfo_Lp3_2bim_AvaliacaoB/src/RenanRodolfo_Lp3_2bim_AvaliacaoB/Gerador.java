@@ -1,30 +1,24 @@
 package RenanRodolfo_Lp3_2bim_AvaliacaoB;
 
-// @author Radames
+// @author Radames/Renan/Rodolfo
 import java.util.ArrayList;
 import java.util.List;
-
+import tools.ManipulaArquivo;
 
 public class Gerador {
-    
-    
-    
+//  C:\Users\Renan\Desktop\COISAS_DO_RENAN\COISAS_DA_UTF\PASTAS NETBEANS\RenanRodolfo_Lp3_1bim_AvaliacaoA
     private List<String> textoDescritivo = new ArrayList<String>();
     ManipulaArquivo file = new ManipulaArquivo();
     List<String> cg = new ArrayList<String>();
-    //classeGerada é uma lista de strings que conterá o código fonte que será gerado
     String arq;
-    //salvar o texto que foi gerado e está armazenado na lista cg
-
     String pastaDestino;
-    String arquivoDestino = pastaDestino + "/src/" +"DAOs/" + arq + ".java";
+
     public Gerador(String arq, String pastaDestino) {
         this.arq = arq;
         this.pastaDestino = pastaDestino;
            
     }
-
-    
+     
     public String primMaius(String s) {
         return s.substring(0, 1).toUpperCase() + s.substring(1, s.length());
     }
@@ -101,10 +95,8 @@ public class Gerador {
                 + "        } \n"
                 + "    }\n");
         cg.add("}\n");
-//        arquivoDestino = pastaDestino + "DAO" + arq + ".java";
+        String arquivoDestino = pastaDestino + "/src/" +"DAOs/DAO" + arq + ".java";
         int salvarArquivo = file.salvarArquivo(arquivoDestino, cg);
-        
+        System.out.println(arquivoDestino);
      }
 }
-//C:\Users\presa\Documents\Documents\Exemplo_Mudar_Persistencia_00_3
-//C:\Users\presa\Documents\Documents\Exemplo_Mudar_Persistencia_00_3\src\DAOs\DAOGenerico.java

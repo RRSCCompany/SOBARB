@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import tools.ManipulaArquivo;
 
 public class GUIGerador extends JFrame {
 
@@ -27,14 +28,10 @@ public class GUIGerador extends JFrame {
     JLabel labelArquivodeorigem = new JLabel("Arquivo de origem");
     JLabel labelCaminho = new JLabel("Caminho");
     JTextField textFieldArquivodeorigem = new JTextField(50);
-    JTextField textCaminho = new JTextField(200);
+    JTextField textCaminho = new JTextField(50);
     JPanel aviso = new JPanel();
     Container cp;
     JPanel centro = new JPanel();
-//    JButton btnGerarClassePrincipal = new JButton("Classe de Entidade");
-//    JButton btnGerarClasseGUI = new JButton("Classe GUI");
-//    JButton btnClasseDeControle = new JButton("Classe de controle");
-//    JButton btnClasseGUIListagem = new JButton("Classe GUI Listagem");
     JButton btnClasseDaoEspecifico = new JButton("Classe DaoEspecifico");
     JPanel sul = new JPanel();
 
@@ -42,9 +39,8 @@ public class GUIGerador extends JFrame {
         setTitle("Gerador");
         setSize(200, 200);//tamanho da janela
         setLocationRelativeTo(null);
-
-        setLayout(new BorderLayout());//informa qual gerenciador de layout será usado
-        cp = getContentPane();//container principal, para adicionar nele os outros componentes
+        setLayout(new BorderLayout());
+        cp = getContentPane();
 
         centro.setLayout(new GridLayout(3, 1));
 
@@ -58,25 +54,18 @@ public class GUIGerador extends JFrame {
         centro.add(aviso);
 
         sul.setLayout(new FlowLayout());
-//        sul.add(btnGerarClassePrincipal);
-//
-//        sul.add(btnClasseDeControle);
-//        sul.add(btnGerarClasseGUI);
-//        sul.add(btnClasseGUIListagem);
         sul.add(btnClasseDaoEspecifico);
         cp.add(sul, BorderLayout.SOUTH);
         cp.add(centro, BorderLayout.CENTER);
 
-        //carregar ultimaClasseGerada
-        //busca em um arquivo texto, a última classe que foi gerada
         ultimaClasse = file.abrirArquivo("src/RenanRodolfo_Lp3_2bim_AvaliacaoB/ultimaClasseGerada");
         textFieldArquivodeorigem.setText(ultimaClasse.get(0));
 
         pack();
-        // setLocationRelativeTo(this); // posiciona no centro da tela principal
-        setVisible(true);//faz a janela ficar visível
+        setLocationRelativeTo(this); 
+        setVisible(true);
 
-        //listeners
+        
         textFieldArquivodeorigem.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent fe) {
@@ -97,8 +86,7 @@ public class GUIGerador extends JFrame {
                 if (!textFieldArquivodeorigem.getText().equals("")) {
                     ultimaClasse.add(textFieldArquivodeorigem.getText());
                     file.salvarArquivo("src/RenanRodolfo_Lp3_2bim_AvaliacaoB/ultimaClasseGerada", ultimaClasse);
-                }
-                // Sai do sistema  
+                } 
                 System.exit(0);
             }
         });

@@ -1,4 +1,0 @@
-localhost
-sistemasensores
-radames
-lageado

@@ -2,7 +2,7 @@ package RenanRodolfo_Lp3_2bim_AvaliacaoB;
 
 /**
  *
- * @author Radames
+ * @author Radames/Renan/Rodolfo
  */
 public class Main {
 
