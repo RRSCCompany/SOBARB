@@ -1,3 +1,0 @@
-datahora_inicio_transferencia;Date;19
-datahora_fim_transferencia;Date;19
-mensagem_status_id_mensagem_status;int;11

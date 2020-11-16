@@ -1,3 +1,0 @@
-idLivro;int;0
-nomeLivro;String;30
-nomeAutor;String;30

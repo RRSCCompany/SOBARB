@@ -1,2 +1,0 @@
-sigla;String;2
-nome;String;25

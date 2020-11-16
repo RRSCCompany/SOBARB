@@ -1,4 +1,0 @@
-id;int;0
-nome;String;40
-preco;double;0
-quantidade;int

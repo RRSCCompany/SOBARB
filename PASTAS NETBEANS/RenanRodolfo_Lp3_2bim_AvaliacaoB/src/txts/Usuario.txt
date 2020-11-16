@@ -1,3 +1,0 @@
-id;int;4
-nome;String;50
-idade;int;2

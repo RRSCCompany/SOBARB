@@ -1,3 +1,0 @@
-id_pessoa;int;0
-email;String;50
-nome_pessoa;String;50

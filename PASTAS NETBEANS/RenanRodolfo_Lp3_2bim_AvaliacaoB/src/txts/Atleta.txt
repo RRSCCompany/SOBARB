@@ -1,4 +1,0 @@
-id;int;4
-nome;String;50
-altura;double;0
-esporte;String;9
